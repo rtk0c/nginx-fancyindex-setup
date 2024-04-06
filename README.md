@@ -4,19 +4,17 @@ A responsive theme for [Nginx](https://www.nginx.org/)'s [Fancyindex module](htt
 
 This is modified from upstream to be:
 1. Keeping the footer functionality without needing client-side Javascript to fetch a separate markdown file and rendering it. Instead, Fancyindex should be configured to directly load a HTML file as the footer.
-  - The side effect is that if this HTML file is not created, Nginx will output a 404 page and that becomes the footer instead.
+    - The side effect is that if this HTML file is not created, Nginx will output a 404 page and that becomes the footer instead.
 2. If the client has Javascript enabled...
-  - A search form for the current directory level.
+    - A search form for the current directory level.
 3. No distinct light/dark theme setup. Instead, everything is controlled by CSS media queries.
-
-The fancyindex module can be found [here](https://github.com/aperezdc/ngx-fancyindex) (by @aperezdc).
 
 ## Usage
 
 1. Make sure you have the fancyindex module installed. See the nginx documentation, or you respective operating system's package manage documentation if they provide such a package. Some notes:
   - Some Linux distros ship Nginx builds with Fancyindex compiled to it. In this case, probably install that directly.
   - Some ship Fancyindex as a dynamic module. In this case, install that _and then_ call `load_module /path/to/your/nginx_mod_fancyindex.so` in your `nginx.conf`.
-2. Modify `nginx.conf` per [[Nginx Configuration]]
+2. Modify `nginx.conf` per [Nginx Configuration](#nginx-configuration)
 3. Move the contents of the `static/` folder to the root of the site directory. The code below assumes that the contents resides in `/.fancyindex/`.
 4. Create `README.html` files under each directory as needed. These will show up on the bottom of the respective directory listing page. Apply the CSS class `.readme` to a wrapper element around the content to theme tags insde like `<b>`, `<code>`, `<h1>`. See the relevant section in [styles.css](/static/styles.css) for details. See `example/root/README.html` for an example usage.
 
@@ -24,7 +22,7 @@ The fancyindex module can be found [here](https://github.com/aperezdc/ngx-fancyi
 
 A standard config looks something like this (use `-light` for the default light theme, or `-dark` for a dark theme):
 
-```bash
+```nginx
 location / {
   # Root of the site directory; change to your own
   root /path/to/your/files;
