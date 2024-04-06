@@ -18,7 +18,7 @@ The fancyindex module can be found [here](https://github.com/aperezdc/ngx-fancyi
   - Some ship Fancyindex as a dynamic module. In this case, install that _and then_ call `load_module /path/to/your/nginx_mod_fancyindex.so` in your `nginx.conf`.
 2. Modify `nginx.conf` per [[Nginx Configuration]]
 3. Move the contents of the `static/` folder to the root of the site directory. The code below assumes that the contents resides in `/.fancyindex/`.
-4. Create `README.html` files under each directory as needed. These will show up on the bottom of the respective directory listing page. Apply the CSS class `.readme` to a wrapper element around the content to theme tags insde like `<b>`, `<code>`, `<h1>`. See the relevant section in [styles.css](/static/styles.css) for details.
+4. Create `README.html` files under each directory as needed. These will show up on the bottom of the respective directory listing page. Apply the CSS class `.readme` to a wrapper element around the content to theme tags insde like `<b>`, `<code>`, `<h1>`. See the relevant section in [styles.css](/static/styles.css) for details. See `example/root/README.html` for an example usage.
 
 ### Nginx Configuration
 
@@ -46,3 +46,7 @@ location ~ ^.*README.html$ {
   try_files $uri /.fancyindex/defaultFooter.html;
 }
 ```
+
+## Example
+
+There is an example setup in [example/](/example/)
