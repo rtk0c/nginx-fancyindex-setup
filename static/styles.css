@@ -19,7 +19,7 @@
 	--footer-link-color: #990012;
 }
 
-@media (prefers-color-scheme: dark) {
+@media(prefers-color-scheme: dark) {
 	:root {
 		--body-bg-color: #2F343F;
 		--body-text-color: #FFFFFF;
@@ -35,39 +35,31 @@
 	}
 }
 
-* {
-    font-family: 'Verdana', sans-serif;
-	margin: 0;
-	padding: 0;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-html {
-	font-weight: 300;
-	font-size: 1em;
-	line-height: 2em;
-}
-
 body {
+	font-family: sans-serif;
+
 	margin: 0 auto;
 	padding-top: 20px;
-	max-width: 800px;
 	background-color: var(--body-bg-color);
 	color: var(--body-text-color);
 }
 
-thead {
-	font-weight: 200;
-	font-size: 1.2em;
+code {
+	padding: .2em .4em;
+	margin: 0;
+	font-size: 95%;
+	white-space: break-spaces;
+	background-color: rgba(175,184,193,0.2);
+	border-radius: 6px;
 }
 
 h1 {
-	font-weight: 200;
-	text-align: center;
+	font-weight: bold;
 	font-size: 1.4em;
-	line-height: 3em;
+}
+
+h1#dir_path {
+	text-align: center;
 }
 
 a {
@@ -82,104 +74,87 @@ a.clear, a.clear:link, a.clear:visited {
 	color: var(--link-visited-color);
 	padding: 2px 0;
 	font-weight: 400;
-	font-size: 14px;
+	font-size: 1em;
 	margin: 0 0 0 20px;
 	line-height: 14px;
 	display: inline-block;
 	border-bottom: transparent 1px solid;
 	vertical-align: -10px;
-	-webkit-transition: all 300ms ease-in;
-	-moz-transition: all 300ms ease-in;
-	-ms-transition: all 300ms ease-in;
-	-o-transition: all 300ms ease-in;
 	transition: all 300ms ease-in;
 }
 
 input {
-	margin: 0 auto;
-	font-size: 100%;
-	vertical-align: middle;
-	*overflow: visible;
-	line-height: normal;
-    font-family: 'Open Sans', sans-serif;
-	font-size: 12px;
-	font-weight: 300;
-	line-height: 18px;
 	display: inline-block;
-	height: 20px;
 	padding: 4px 32px 4px 6px;
-	margin-bottom: 9px;
-	font-size: 14px;
-	line-height: 20px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
 	width: 196px;
+	height: 20px;
+
+	vertical-align: middle;
+	overflow: visible;
+	font-size: 0.8em;
+	font-weight: 300;
+	line-height: normal;
+	line-height: 20px;
+
 	border: 1px solid #ccc;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-	-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	border-radius: 3px;
 	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-	-webkit-transition: border linear .2s,box-shadow linear .2s;
-	-moz-transition: border linear .2s,box-shadow linear .2s;
-	-o-transition: border linear .2s,box-shadow linear .2s;
-	transition: border linear .2s,box-shadow linear .2s;
+
+	transition: border linear .2s, box-shadow linear .2s;
 }
 input:focus {
 	outline: 0;
 	border-color: rgba(0,0,0,0.8);
-	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(0,0,0,0.6);
-	-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(0,0,0,0.6);
 	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(0,0,0,0.6);
-}
-input::-moz-focus-inner {
-	padding: 0;
-	border: 0;
 }
 
 #search {
-	color: var(--search-color);
-	background-color: var(--search-bg-color);
 	display: block;
+	box-sizing: content-box;
 	margin-left: auto;
 	margin-right: auto;
 	width: 250px;
-	margin-top: 20px;
-	-webkit-box-sizing: content-box;
-	-moz-box-sizing: content-box;
-	box-sizing: content-box;
-	-webkit-appearance: textfield;
-	-webkit-transition: all 300ms ease-in;
-	-moz-transition: all 300ms ease-in;
-	-ms-transition: all 300ms ease-in;
-	-o-transition: all 300ms ease-in;
-	transition: all 300ms ease-in;
+
+	color: var(--search-color);
+	background-color: var(--search-bg-color);
 }
 
 table {
 	border-collapse: collapse;
-	font-size: 0.9em;
-	max-width: 100%;
 	margin: 20px auto 0;
+
+	font-size: 0.9em;
+	line-height: 2em;
+}
+
+thead {
+	font-size: 1.2em;
+	font-weight: 200;
 }
 
 tr {
 	outline: 0;
 	border: 0;
 }
-tr:hover td {
-	color: var(--tr-hover);	
+tr:hover {
+	color: var(--tr-hover);
 	background: var(--tr-hover-bg);
 }
-tr td:first-of-type {
+tr > td.link {
 	padding-left: 10px;
 	padding-right: 10px;
 }
-tr.parent a {
+
+/* NOTE(rtk0c): I don't think fancyindex emits the .parent class for .. anymore */
+.parent > a {
 	color: #9099A3;
 }
+.parent > a:hover {
+	color: #2A2A2A;
+}
+
 
 th {
-
 	text-align: left;
 	font-size: .75em;
 	padding-right: 20px;
@@ -198,27 +173,29 @@ td {
 	border-bottom: 1px solid #edf1f5;
 	vertical-align: middle;
 	text-align: left;
-	-webkit-transition: background 300ms ease-in;
-	-moz-transition: background 300ms ease-in;
-	-ms-transition: background 300ms ease-in;
-	-o-transition: background 300ms ease-in;
 	transition: background 300ms ease-in;
 }
-td:last-child,th:last-child {
+
+td:last-child,
+th:last-child {
 	text-align: right;
 	padding-right: 0;
 }
-td a {
-	display: block;
-}
 
-.parent a:hover {
-	color: #2A2A2A;
+.readme {
+	margin-top: 3em;
+	margin-bottom: 5em;
+	margin-left: auto;
+	margin-right: auto;
+
+	/* Recommended here, I guess (16px font and 26px height) https://css-tricks.com/six-tips-for-better-web-typography */
+	line-height: 1.6em;
+	max-width: 90ch;
 }
 
 footer {
-	font-size:12px;
-	text-align:center;
+	font-size: 0.8em;
+	text-align: center;
 }
 footer a {
 	text-decoration: underline;
