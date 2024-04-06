@@ -4,7 +4,6 @@ A responsive theme for [Nginx](https://www.nginx.org/)'s [Fancyindex module](htt
 
 This is modified from upstream to be:
 1. Keeping the footer functionality without needing client-side Javascript to fetch a separate markdown file and rendering it. Instead, Fancyindex should be configured to directly load a HTML file as the footer.
-    - The side effect is that if this HTML file is not created, Nginx will output a 404 page and that becomes the footer instead.
 2. If the client has Javascript enabled...
     - A search form for the current directory level.
 3. No distinct light/dark theme setup. Instead, everything is controlled by CSS media queries.
@@ -47,4 +46,4 @@ location ~ ^.*README.html$ {
 
 ## Example
 
-There is an example setup in [example/](/example/)
+There is an example site in [example/](/example/)
